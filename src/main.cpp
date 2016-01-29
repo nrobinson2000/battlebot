@@ -5,7 +5,7 @@
 //  //  //  //  //  //  //  //
 
 // Libraries
-#include "PS2X_lib.h" //  PS2 Controller
+#include <PS2X_lib.h> //  PS2 Controller
 
 #define FL_PWM 7
 #define FR_PWM 6  // Robot PWM Pins
