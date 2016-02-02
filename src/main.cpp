@@ -289,17 +289,4 @@ void loop()
     digitalWrite(FLIPPER, HIGH);
   }
 
-  //  delay(20);
-
-
-
-
-  //
-  //  // Make a square
-  //  for (int i = 0; i >= 4; i++)
-  //  {
-  //    moveForwards(220, 2000);
-  //    moveRight(100, 1500);
-  //  }
-
 }
