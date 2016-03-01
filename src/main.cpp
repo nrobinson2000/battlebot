@@ -187,7 +187,7 @@ void flip(int time)
 void setup()
 {
   Serial.begin(9600);
-  ps2x.config_gamepad(47, 51, 49, 53);
+  ps2x.config_gamepad(47, 51, 49, 53); // Clock => 47, Command=> 51, Attention => 49, Data => 53
 
   pinMode(FL_PWM, OUTPUT);
   pinMode(FR_PWM, OUTPUT);  //  Set PWMs to OUTPUT
