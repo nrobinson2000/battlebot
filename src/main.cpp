@@ -1,3 +1,5 @@
+#include <PS2X_lib.h>
+
 //  //  //  //  //  //  //  //
 //  BATTLE BOT WITH FLIPPER //
 //  by Nathan Robinson      //
@@ -5,7 +7,6 @@
 //  //  //  //  //  //  //  //
 
 // Libraries
-#include <PS2X.h> //  PS2 Controller
 #include <SoftwareSerial.h>
 
 #define FL_PWM 7
@@ -203,6 +204,11 @@ void setup()
   pinMode(FLIPPER, OUTPUT);
 
   Serial1.begin(9600);
+
+  analogWrite(FL_PWM, 250);
+   analogWrite(FR_PWM, 250);
+    analogWrite(BR_PWM, 250);
+     analogWrite(BL_PWM, 250);
 
 }
 
