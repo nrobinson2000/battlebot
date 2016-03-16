@@ -7,6 +7,7 @@
 // Libraries
 #include <SoftwareSerial.h>
 #include <PS2X.h>
+
 #define FL_PWM 7
 #define FR_PWM 6  // Robot PWM Pins
 #define BL_PWM 5
@@ -63,7 +64,6 @@ void stop()
   FR_SPEED = 0;  // Set speed variables to 0
   BL_SPEED = 0;
   BR_SPEED = 0;
-
 }
 
 void moveForwards(int speed, int wait)
@@ -91,7 +91,6 @@ void moveForwards(int speed, int wait)
   analogWrite(BR_PWM, BR_SPEED);
   delay(wait);
   stop();
-
 }
 
 void moveBackwards(int speed, int wait)
@@ -146,7 +145,6 @@ void moveRight(int speed, int wait)
   analogWrite(BR_PWM, BR_SPEED);
   delay(wait);
   stop();
-
 }
 
 void moveLeft(int speed, int wait)
@@ -174,7 +172,6 @@ void moveLeft(int speed, int wait)
   analogWrite(BR_PWM, BR_SPEED);
   delay(wait);
   stop();
-
 }
 
 void flip(int time)
@@ -204,9 +201,21 @@ void setup()
   Serial1.begin(9600);
 
   analogWrite(FL_PWM, 250);
-   analogWrite(FR_PWM, 250);
-    analogWrite(BR_PWM, 250);
-     analogWrite(BL_PWM, 250);
+  analogWrite(FR_PWM, 250);
+  analogWrite(BR_PWM, 250);
+  analogWrite(BL_PWM, 250);
+
+  digitalWrite(FL_DIR, HIGH);  // Set front left motor to forwards
+  FL_FORWARDS = true;
+
+  digitalWrite(FR_DIR, HIGH); // Set front right motor to forwards
+  FR_FORWARDS = true;
+
+  digitalWrite(BL_DIR, LOW); // Set back left motor to forwards
+  FR_FORWARDS = true;
+
+  digitalWrite(BR_DIR, LOW);  // Set back right motor to forwards
+  BR_FORWARDS = true;
 
 }
 
