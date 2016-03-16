@@ -1,5 +1,3 @@
-#include <PS2X_lib.h>
-
 //  //  //  //  //  //  //  //
 //  BATTLE BOT WITH FLIPPER //
 //  by Nathan Robinson      //
@@ -8,7 +6,7 @@
 
 // Libraries
 #include <SoftwareSerial.h>
-
+#include <PS2X.h>
 #define FL_PWM 7
 #define FR_PWM 6  // Robot PWM Pins
 #define BL_PWM 5
