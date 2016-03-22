@@ -199,16 +199,17 @@ void setup()
 
   pinMode(FLIPPER, OUTPUT);
 
+  Serial.begin(9600);
   Serial1.begin(9600);
 
-// moveForwards(100, 3000);
-// moveRight(200, 3000);
-// moveForwards(100, 3000);
-// moveRight(200, 3000);
-// moveForwards(100, 3000);
-// moveRight(200, 3000);
-// moveForwards(100, 3000);
-// moveRight(200, 3000);
+moveForwards(100, 3000);
+moveRight(200, 3000);
+moveForwards(100, 3000);
+moveRight(200, 3000);
+moveForwards(100, 3000);
+moveRight(200, 3000);
+moveForwards(100, 3000);
+moveRight(200, 3000);
 
 
 }
@@ -232,6 +233,7 @@ void loop()
 
   if (ps2x.ButtonPressed(GREEN_FRET))
   {
+    Serial.println(" GREEN PRESSED");
     moveBackwards(255, 100);
   }
 
@@ -277,7 +279,7 @@ void loop()
 
   if (ps2x.ButtonPressed(DOWN_STRUM))
   {
-    moveLeft(70, 100);
+  //  moveLeft(70, 100);
   }
 
   if (ps2x.ButtonReleased(UP_STRUM))
