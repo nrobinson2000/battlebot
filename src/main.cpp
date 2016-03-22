@@ -73,10 +73,10 @@ void moveForwards(int speed, int wait)
   BL_SPEED = speed;
   BR_SPEED = speed;
 
-  digitalWrite(FL_DIR, HIGH);  // Set front left motor to forwards
+  digitalWrite(FL_DIR, LOW);  // Set front left motor to forwards
   FL_FORWARDS = true;
 
-  digitalWrite(FR_DIR, HIGH); // Set front right motor to forwards
+  digitalWrite(FR_DIR, LOW); // Set front right motor to forwards
   FR_FORWARDS = true;
 
   digitalWrite(BL_DIR, HIGH); // Set back left motor to forwards
@@ -84,6 +84,7 @@ void moveForwards(int speed, int wait)
 
   digitalWrite(BR_DIR, HIGH);  // Set back right motor to forwards
   BR_FORWARDS = true;
+
 
   analogWrite(FL_PWM, FL_SPEED);
   analogWrite(FR_PWM, FR_SPEED); // Tell motors to go at a certain speed
@@ -100,16 +101,16 @@ void moveBackwards(int speed, int wait)
   BL_SPEED = speed;
   BR_SPEED = speed;
 
-  digitalWrite(FL_DIR, LOW);  // Set front left motor to backwards
+  digitalWrite(FL_DIR, HIGH);  // Set front left motor to forwards
   FL_FORWARDS = false;
 
-  digitalWrite(FR_DIR, LOW);  // Set front right motor to backwards
+  digitalWrite(FR_DIR, HIGH); // Set front right motor to forwards
   FR_FORWARDS = false;
 
-  digitalWrite(BL_DIR, LOW);  // Set back left motor to backwards
-  BL_FORWARDS = false;
+  digitalWrite(BL_DIR, LOW); // Set back left motor to forwards
+  FR_FORWARDS = false;
 
-  digitalWrite(BR_DIR, LOW);  // Set back right motor to backwards
+  digitalWrite(BR_DIR, LOW);  // Set back right motor to forwards
   BR_FORWARDS = false;
 
   analogWrite(FL_PWM, FL_SPEED);
@@ -133,10 +134,10 @@ void moveRight(int speed, int wait)
   digitalWrite(FR_DIR, HIGH);  // Set front right motor to forwards
   FR_FORWARDS = true;
 
-  digitalWrite(BL_DIR, LOW);  // Set back left motor to backwards
+  digitalWrite(BL_DIR, HIGH);  // Set back left motor to backwards
   BL_FORWARDS = false;
 
-  digitalWrite(BR_DIR, HIGH);  // Set back right motor to forwards
+  digitalWrite(BR_DIR, LOW);  // Set back right motor to forwards
   BR_FORWARDS = true;
 
   analogWrite(FL_PWM, FL_SPEED);
@@ -160,10 +161,10 @@ void moveLeft(int speed, int wait)
   digitalWrite(FR_DIR, LOW);  // Set front right motor to backwards
   FR_FORWARDS = false;
 
-  digitalWrite(BL_DIR, HIGH);  // Set back left motor to forwards
+  digitalWrite(BL_DIR, LOW);  // Set back left motor to forwards
   BL_FORWARDS = true;
 
-  digitalWrite(BR_DIR, LOW);  // Set back right motor to backwards
+  digitalWrite(BR_DIR, HIGH);  // Set back right motor to backwards
   BR_FORWARDS = false;
 
   analogWrite(FL_PWM, FL_SPEED);
@@ -200,22 +201,15 @@ void setup()
 
   Serial1.begin(9600);
 
-  analogWrite(FL_PWM, 250);
-  analogWrite(FR_PWM, 250);
-  analogWrite(BR_PWM, 250);
-  analogWrite(BL_PWM, 250);
+// moveForwards(100, 3000);
+// moveRight(200, 3000);
+// moveForwards(100, 3000);
+// moveRight(200, 3000);
+// moveForwards(100, 3000);
+// moveRight(200, 3000);
+// moveForwards(100, 3000);
+// moveRight(200, 3000);
 
-  digitalWrite(FL_DIR, HIGH);  // Set front left motor to forwards
-  FL_FORWARDS = true;
-
-  digitalWrite(FR_DIR, HIGH); // Set front right motor to forwards
-  FR_FORWARDS = true;
-
-  digitalWrite(BL_DIR, LOW); // Set back left motor to forwards
-  FR_FORWARDS = true;
-
-  digitalWrite(BR_DIR, LOW);  // Set back right motor to forwards
-  BR_FORWARDS = true;
 
 }
 
