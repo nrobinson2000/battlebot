@@ -38,6 +38,7 @@ int FR_SPEED = 0;  // Speed of motors
 int BL_SPEED = 0;
 int BR_SPEED = 0;
 
+String readString = "";
 
 void stop()
 {
@@ -185,6 +186,8 @@ void flip(int time)
 void setup()
 {
   Serial.begin(9600);
+  Serial1.begin(9600);
+
   ps2x.config_gamepad(47, 51, 49, 53); // Clock => 47, Command=> 51, Attention => 49, Data => 53
 
   pinMode(FL_PWM, OUTPUT);
@@ -202,104 +205,137 @@ void setup()
   Serial.begin(9600);
   Serial1.begin(9600);
 
-moveForwards(100, 3000);
-moveRight(200, 3000);
-moveForwards(100, 3000);
-moveRight(200, 3000);
-moveForwards(100, 3000);
-moveRight(200, 3000);
-moveForwards(100, 3000);
-moveRight(200, 3000);
+}
+
+// 1XX 1XX 1XX 1XX
+// fl-fr-bl-br
+// 1 = Move forward; 2 = Move backwards; 0 = Don't move
+// XX = speed / 5 ; if XX == 51; then speed = 255 ..; if XX == 00; then speed == 0
 
 
+
+
+void parseCommand(String command)
+{
+  String cmd = command.substring(3);
+
+  if (command.startsWith("fl"))
+  {
+    String dir = String(cmd.charAt(0));
+    String speed = cmd.substring(1,3);
+
+    if (dir == "1")
+    {
+      digitalWrite(FL_DIR, LOW);  // Set front left motor to forwards
+      FL_FORWARDS = true;
+      analogWrite(FL_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "2")
+    {
+      digitalWrite(FL_DIR, HIGH);  // Set front left motor to backwards
+      FL_FORWARDS = false;
+      analogWrite(FL_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "0")
+    {
+      analogWrite(FL_PWM, 0);
+    }
+  }
+
+  if (command.startsWith("fr"))
+  {
+    String dir = String(cmd.charAt(0));
+    String speed = cmd.substring(1,3);
+
+    if (dir == "1")
+    {
+      digitalWrite(FR_DIR, LOW); // Set front right motor to forwards
+      FR_FORWARDS = true;
+      analogWrite(FR_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "2")
+    {
+      digitalWrite(FR_DIR, HIGH);  // Set front left motor to backwards
+      FR_FORWARDS = false;
+      analogWrite(FR_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "0")
+    {
+      analogWrite(FR_PWM, 0);
+    }
+  }
+
+  if (command.startsWith("bl"))
+  {
+    String dir = String(cmd.charAt(0));
+    String speed = cmd.substring(1,3);
+
+    if (dir == "1")
+    {
+      digitalWrite(BL_DIR, HIGH); // Set front right motor to forwards
+      BL_FORWARDS = true;
+      analogWrite(BL_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "2")
+    {
+      digitalWrite(BL_DIR, LOW);  // Set front left motor to backwards
+      BL_FORWARDS = false;
+      analogWrite(BL_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "0")
+    {
+      analogWrite(BL_PWM, 0);
+    }
+  }
+
+  if (command.startsWith("br"))
+  {
+    String dir = String(cmd.charAt(0));
+    String speed = cmd.substring(1,3);
+
+    if (dir == "1")
+    {
+      digitalWrite(BR_DIR, HIGH); // Set front right motor to forwards
+      BR_FORWARDS = true;
+      analogWrite(BR_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "2")
+    {
+      digitalWrite(BR_DIR, LOW);  // Set front left motor to backwards
+      BR_FORWARDS = false;
+      analogWrite(BR_PWM, speed.toInt() * 5);
+    }
+
+    if (dir == "0")
+    {
+      analogWrite(BR_PWM, 0);
+    }
+  }
 }
 
 void loop()
 {
 
-  float flip_bar = ps2x.Analog(WHAMMY_BAR);
-  ps2x.read_gamepad();
-
-
-  if (ps2x.ButtonPressed(RED_FRET))
+  while (Serial1.available())
   {
-    moveForwards(255, 100);
+    delay(3);
+    char c = Serial1.read();
+    readString += c;
   }
 
-  if (ps2x.ButtonReleased(RED_FRET))
+  readString.trim();
+
+  if (readString.length() > 0)
   {
-    stop();
+    Serial.println("Command: " + readString);
+    parseCommand(readString);
+    readString = "";
   }
-
-  if (ps2x.ButtonPressed(GREEN_FRET))
-  {
-    Serial.println(" GREEN PRESSED");
-    moveBackwards(255, 100);
-  }
-
-  if (ps2x.ButtonReleased(GREEN_FRET))
-  {
-    stop();
-  }
-
-  if (ps2x.ButtonPressed(BLUE_FRET))
-  {
-
-  }
-
-  if (ps2x.ButtonReleased(BLUE_FRET))
-  {
-
-  }
-
-  if (ps2x.ButtonPressed(YELLOW_FRET))
-  {
-    digitalWrite(FLIPPER, LOW);
-  }
-
-  if (ps2x.ButtonReleased(YELLOW_FRET))
-  {
-    digitalWrite(FLIPPER, HIGH);
-  }
-
-  if (ps2x.ButtonPressed(ORANGE_FRET))
-  {
-    flip(500);
-  }
-  if (ps2x.ButtonReleased(ORANGE_FRET))
-  {
-
-  }
-
-  //only turn a color on it if strummed
-  if (ps2x.ButtonPressed(UP_STRUM))
-  {
-    moveRight(70, 100);
-  }
-
-  if (ps2x.ButtonPressed(DOWN_STRUM))
-  {
-  //  moveLeft(70, 100);
-  }
-
-  if (ps2x.ButtonReleased(UP_STRUM))
-  {
-    stop();
-  }
-
-  if (ps2x.ButtonReleased(DOWN_STRUM))
-  {
-    stop();
-  }
-
-  if (flip_bar == 0)
-  {
-    digitalWrite(FLIPPER, LOW);
-  }
-
-  if (flip_bar > 0)
-  {
-    digitalWrite(FLIPPER, HIGH);
-  }
-
 }

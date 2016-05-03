@@ -1,0 +1,29 @@
+<DOCTYPE html>
+
+<script src="app.js"></script>
+
+
+
+<center><h1>Click "Inspect!"</h1></center>
+
+
+<center>
+<h2>Speeds</h2>
+
+
+
+<input type="range" id="flsider" min="0" max="102" value="0" onchange="setfl(this.value)"/> FL <br>
+<input type="range" id="frslider" min="0" max="102" value="0" onchange="setfr(this.value)"/> FR <br>
+<input type="range" id="blslider" min="0" max="102" value="0" onchange="setbl(this.value)"/> BL <br>
+<input type="range" id="brslider" min="0" max="102" value="0" onchange="setbr(this.value)"/> BR <br>
+<br><br>
+
+<input type="button" value="Submit" onclick='move()'>
+
+<br><br>
+<input type="button" value="Stop" onclick='reset()'>
+
+</center>
+
+
+</html>
