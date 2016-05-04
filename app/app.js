@@ -11,10 +11,10 @@ var frdir = "";
 var bldir = "";
 var brdir = "";
 
-var flcmd = "";
-var frcmd = "";
-var blcmd = "";
-var brcmd = "";
+var flcmd = "000";
+var frcmd = "000";
+var blcmd = "000";
+var brcmd = "000";
 
 
 function httpPost(url, params)
@@ -38,7 +38,6 @@ function httpGet(theUrl)
 
 function callFunction(device, functionName, args)
 {
-
   var params = 'arg=' + args;
   console.clear()
   httpPost("https://api.particle.io/v1/devices/" + device + "/" + functionName, params);
@@ -47,8 +46,9 @@ function callFunction(device, functionName, args)
   console.log("With arguments: " + args);
 }
 
-function makeProper(value)
+function makeProper(valueint)
 {
+  var value = valueint.toString();
   var valuedata = "";
   if (value.length == 2)
   {
@@ -63,15 +63,30 @@ function makeProper(value)
   return valuedata;
 }
 
+function dummySlider(data)
+{
+  console.log("Slider Value = " + data);
+  if (data > 51)
+  {
+    console.log("Forwards/Speed = " + (data - 51));
+  }
+  if (data < 51)
+  {
+    console.log("Backwards/Speed = " + (51 - data));
+  }
+  if (data == 51)
+  {
+    console.log("Stopping.  Speed = 0");
+  }
+}
+
 function setfl(data)
 {
   var tempdata = 0;
-  console.log(data);
   if (data > 51)
   {
     fldir = "1";
     tempdata = data - 51;
-
   }
   if (data < 51)
   {
@@ -83,16 +98,12 @@ function setfl(data)
     fldir = "0";
     tempdata = 0;
   }
-  console.log(tempdata);
-
   flcmd = fldir + makeProper(tempdata);
-  console.log(flcmd);
 }
 
 function setfr(data)
 {
   var tempdata = 0;
-
   if (data > 51)
   {
     frdir = "1";
@@ -101,21 +112,19 @@ function setfr(data)
   if (data < 51)
   {
     frdir = "2";
-    tempdata = data;
+    tempdata = 51 - data;
   }
-  if (data = 51)
+  if (data == 51)
   {
     frdir = "0";
     tempdata = 0;
   }
-
   frcmd = frdir + makeProper(tempdata);
 }
 
 function setbl(data)
 {
   var tempdata = 0;
-
   if (data > 51)
   {
     bldir = "1";
@@ -124,9 +133,9 @@ function setbl(data)
   if (data < 51)
   {
     bldir = "2";
-    tempdata = data;
+    tempdata = 51 - data;
   }
-  if (data = 51)
+  if (data == 51)
   {
     bldir = "0";
     tempdata = 0;
@@ -138,7 +147,6 @@ function setbl(data)
 function setbr(data)
 {
   var tempdata = 0;
-
   if (data > 51)
   {
     brdir = "1";
@@ -147,14 +155,13 @@ function setbr(data)
   if (data < 51)
   {
     brdir = "2";
-    tempdata = data;
+    tempdata = 51 - data;
   }
-  if (data = 51)
+  if (data == 51)
   {
     brdir = "0";
     tempdata = 0;
   }
-
   brcmd = brdir + makeProper(tempdata);
 }
 
