@@ -210,5 +210,15 @@ function backwards()
   callFunction(photon, "move", "251 251 251 251");
 }
 
+function clockwise()
+{
+  callFunction(photon, "move", "235 135 235 135");
+}
+
+function counterclockwise()
+{
+  callFunction(photon, "move", "135 235 135 235");
+}
+
 console.log("To call any function use:");
 console.log("callFunction(device, functionName, args)");
