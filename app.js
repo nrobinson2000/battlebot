@@ -212,11 +212,27 @@ function backwards()
 
 function clockwise()
 {
+  $("#flslider").val(35);
+  $("#flslider").trigger('change');
+  $("#frslider").val(102-35);
+  $("#frslider").trigger('change');
+  $("#blslider").val(35);
+  $("#blslider").trigger('change');
+  $("#brslider").val(102-35);
+  $("#brslider").trigger('change');
   callFunction(photon, "move", "235 135 235 135");
 }
 
 function counterclockwise()
 {
+  $("#flslider").val(35);
+  $("#flslider").trigger('change');
+  $("#frslider").val(102-35);
+  $("#frslider").trigger('change');
+  $("#blslider").val(35);
+  $("#blslider").trigger('change');
+  $("#brslider").val(102-35);
+  $("#brslider").trigger('change');
   callFunction(photon, "move", "135 235 135 235");
 }
 
