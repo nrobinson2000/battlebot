@@ -212,11 +212,11 @@ function backwards()
 
 function clockwise()
 {
-  $("#flslider").val(35);
+  $("#flslider").val(51-35);
   $("#flslider").trigger('change');
   $("#frslider").val(51+35);
   $("#frslider").trigger('change');
-  $("#blslider").val(35);
+  $("#blslider").val(51-35);
   $("#blslider").trigger('change');
   $("#brslider").val(51+35);
   $("#brslider").trigger('change');
@@ -227,11 +227,11 @@ function counterclockwise()
 {
   $("#flslider").val(51+35);
   $("#flslider").trigger('change');
-  $("#frslider").val(35);
+  $("#frslider").val(51-35);
   $("#frslider").trigger('change');
   $("#blslider").val(51+35);
   $("#blslider").trigger('change');
-  $("#brslider").val(35);
+  $("#brslider").val(51-35);
   $("#brslider").trigger('change');
   callFunction(photon, "move", "135 235 135 235");
 }
