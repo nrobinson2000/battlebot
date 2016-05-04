@@ -1,0 +1,2 @@
+# Battlebot with Flipper
+Use the sliders above to set each motor to its individual desired direction and speed.  Click <code>GO</code> to apply.  Click <code>STOP</code> to make the robot come to a complete stop.  Click <code>FORWARDS</code> or <code> BACKWARDS</code> to quickly make the robot move in the desired direction.  Click <code>CLOCKWISE</code> or <code>COUNTERWISE</code> to quickly make the robot rotate in the desired direction.
