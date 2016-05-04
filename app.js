@@ -184,5 +184,31 @@ function reset()
     callFunction(photon, "move", "000 000 000 000");
 }
 
+function forwards()
+{
+  $("#flslider").val(102);
+  $("#flslider").trigger('change');
+  $("#frslider").val(102);
+  $("#frslider").trigger('change');
+  $("#blslider").val(102);
+  $("#blslider").trigger('change');
+  $("#brslider").val(102);
+  $("#brslider").trigger('change');
+  callFunction(photon, "move", "151 151 151 151");
+}
+
+function backwards()
+{
+  $("#flslider").val(0);
+  $("#flslider").trigger('change');
+  $("#frslider").val(0);
+  $("#frslider").trigger('change');
+  $("#blslider").val(0);
+  $("#blslider").trigger('change');
+  $("#brslider").val(0);
+  $("#brslider").trigger('change');
+  callFunction(photon, "move", "251 251 251 251");
+}
+
 console.log("To call any function use:");
 console.log("callFunction(device, functionName, args)");
