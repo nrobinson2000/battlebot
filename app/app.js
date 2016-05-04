@@ -1,3 +1,4 @@
+
 var token = "0101e75a4acb0c906e1d8f4956f9cd032163db43";
 var photon = "1d0028000b47343432313031";
 
@@ -172,6 +173,14 @@ function move()
 
 function reset()
 {
+    $("#flslider").val(51);
+    $("#flslider").trigger('change');
+    $("#frslider").val(51);
+    $("#frslider").trigger('change');
+    $("#blslider").val(51);
+    $("#blslider").trigger('change');
+    $("#brslider").val(51);
+    $("#brslider").trigger('change');
     callFunction(photon, "move", "000 000 000 000");
 }
 
