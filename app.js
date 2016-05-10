@@ -1,6 +1,7 @@
 
 var token = "0101e75a4acb0c906e1d8f4956f9cd032163db43";
 var photon = "1d0028000b47343432313031";
+var electron = "54002e001951343334363036"
 
 var flspeed = "";
 var frspeed = "";
@@ -168,7 +169,7 @@ function setbr(data)
 
 function move()
 {
-  callFunction(photon, "move", flcmd+" "+frcmd+" "+blcmd+" "+ brcmd);
+  callFunction(electron, "move", flcmd+" "+frcmd+" "+blcmd+" "+ brcmd);
 }
 
 function reset()
@@ -181,7 +182,7 @@ function reset()
     $("#blslider").trigger('change');
     $("#brslider").val(51);
     $("#brslider").trigger('change');
-    callFunction(photon, "move", "000 000 000 000");
+    callFunction(electron, "move", "000 000 000 000");
 }
 
 function forwards()
@@ -194,7 +195,7 @@ function forwards()
   $("#blslider").trigger('change');
   $("#brslider").val(102);
   $("#brslider").trigger('change');
-  callFunction(photon, "move", "151 151 151 151");
+  callFunction(electron, "move", "151 151 151 151");
 }
 
 function backwards()
@@ -207,7 +208,7 @@ function backwards()
   $("#blslider").trigger('change');
   $("#brslider").val(0);
   $("#brslider").trigger('change');
-  callFunction(photon, "move", "251 251 251 251");
+  callFunction(electron, "move", "251 251 251 251");
 }
 
 function clockwise()
@@ -220,7 +221,7 @@ function clockwise()
   $("#blslider").trigger('change');
   $("#brslider").val(51-35);
   $("#brslider").trigger('change');
-  callFunction(photon, "move", "135 235 135 235");
+  callFunction(electron, "move", "135 235 135 235");
 }
 
 function counterclockwise()
@@ -233,7 +234,7 @@ function counterclockwise()
   $("#blslider").trigger('change');
   $("#brslider").val(51+35);
   $("#brslider").trigger('change');
-  callFunction(photon, "move", "235 135 235 135");
+  callFunction(electron, "move", "235 135 235 135");
 }
 
 console.log("To call any function use:");
