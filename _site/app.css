@@ -1,0 +1,12 @@
+/*input[type="range"] {
+    position:absolute;
+    -webkit-transform: rotate(90deg);
+    top:100px;
+
+}*/
+
+.info
+{
+  width: -webkit-calc(50%);
+
+}
