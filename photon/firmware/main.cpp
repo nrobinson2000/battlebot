@@ -44,6 +44,7 @@ int flip(String command)
 void setup()
 {
 Particle.function("move", moveMotors);
+Particle.function("flip", flip);
 Serial1.begin(9600);
 Serial.begin(9600);
 
