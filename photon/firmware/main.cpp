@@ -28,6 +28,18 @@ int moveMotors(String command)
   return 1;
 }
 
+int flip(String command)
+{
+  if (command == "flip")
+  {
+    Serial1.println(command);
+  }
+  if (command == "stopflip")
+  {
+    Serial1.println(command);
+  }
+  return 1;
+}
 
 void setup()
 {

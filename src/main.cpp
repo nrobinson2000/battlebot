@@ -18,7 +18,7 @@
 #define BL_DIR 24
 #define BR_DIR 22
 
-#define FLIPPER 50
+#define FLIPPER 34
 
 #define RED 0
 #define GREEN 1
@@ -176,11 +176,14 @@ void moveLeft(int speed, int wait)
   stop();
 }
 
-void flip(int time)
+void flip()
 {
-  digitalWrite(FLIPPER, HIGH);  //  Activate the flipper for time miliseconds
-  delay(time);
-  digitalWrite(FLIPPER, LOW);  // Turn off flipper
+  digitalWrite(FLIPPER, LOW);  //  Activate the flipper for time miliseconds
+}
+
+void stopflip()
+{
+  digitalWrite(FLIPPER, HIGH);
 }
 
 void setup()
@@ -204,7 +207,7 @@ void setup()
 
   Serial.begin(9600);
   Serial1.begin(9600);
-
+  digitalWrite(FLIPPER, HIGH);
 }
 
 // 1XX 1XX 1XX 1XX
@@ -317,6 +320,16 @@ void parseCommand(String command)
     {
       analogWrite(BR_PWM, 0);
     }
+  }
+
+  if (command == "flip")
+  {
+    flip();
+  }
+
+  if (command == "stopflip")
+  {
+    stopflip();
   }
 }
 
