@@ -237,5 +237,8 @@ function counterclockwise()
   callFunction(electron, "move", "235 135 235 135");
 }
 
+
+
+
 console.log("To call any function use:");
 console.log("callFunction(device, functionName, args)");
