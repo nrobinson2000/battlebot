@@ -1,5 +1,5 @@
 #include "application.h"
-
+STARTUP(WiFi.selectAntenna(ANT_AUTO));
 
 // 1XX 1XX 1XX 1XX
 // fl - fr - bl - br
