@@ -257,9 +257,11 @@ function flip()
   }
 }
 
-/// Control robot with arrow keys and Enter
+/// Control robot with arrow keys, Shift and Enter
+/// Got keycodes from http://keycode.info/
+
 $(document).keyup(function (e) {
-    if ($(".input1:focus") && (e.keyCode === 13)) {
+    if ($(".input1:focus") && (e.keyCode === 16)) {
        reset();
     }
  });
@@ -285,6 +287,12 @@ $(document).keyup(function (e) {
  $(document).keyup(function (e) {
     if ($(".input1:focus") && (e.keyCode === 37)) {
        counterclockwise();
+    }
+ });
+
+ $(document).keyup(function (e) {
+    if ($(".input1:focus") && (e.keyCode === 13)) {
+       flip();
     }
  });
 

@@ -17,8 +17,8 @@
 <section class="main-content">
 <center>
 <h2>battlebot controller</h2>
-<input type="button" value='- Photon -' onclick='device = photon;'>
-<input type="button" value='- Electron -' onclick='device = electron;'>
+<input type="button" value='- Photon -' onclick='device = photon; console.log(device + " selected.");'>
+<input type="button" value='- Electron -' onclick='device = electron; console.log(device + " selected.");'>
 <br>
 <br>
 
@@ -26,37 +26,32 @@
 <input type="range" id="frslider" min="0" max="102" value="51" onchange="setfr(this.value)"/> FR <br>
 <input type="range" id="blslider" min="0" max="102" value="51" onchange="setbl(this.value)"/> BL <br>
 <input type="range" id="brslider" min="0" max="102" value="51" onchange="setbr(this.value)"/> BR <br>
-
 <br>
+
 <input type="button" value='- Go -' onclick='move()'>
 <input type="button" value='- Flipper -' onclick='flip()'>
 <input type="button" value='- Stop -' onclick='reset()'>
 <br><br>
 
 <input type="button" value='- Forwards -' onclick='forwards()'>
-<br>
-<br>
+
 <input type="button" value='- Backwards -' onclick='backwards()'>
 <br><br>
 
 <input type="button" value='- Clockwise -' onclick='clockwise()'>
 <input type="button" value='- Counterwise -' onclick='counterclockwise()'>
-<br><br>
+<br>
 
-
-
-<!--
-<br><br>
-<br><br>
-<p>Dummy Slider</p>
-Backwards <input type="range" id="brslider" min="0" max="102" value="51" onchange="dummySlider(this.value)"/> Forwards<br>
-<p>"Inspect" for debug info.</p> -->
-
-
-
+<h2>controls</h2>
 <p>
-Use the sliders above to set each motor to its individual desired direction and speed.  Click <code>GO</code> to apply.  Click <code>STOP</code> to make the robot come to a complete stop.  Click <code>FORWARDS</code> or <code> BACKWARDS</code> to quickly make the robot move in the desired direction.  Click <code>CLOCKWISE</code> or <code>COUNTERWISE</code> to quickly make the robot rotate in the desired direction.
+<strong>Click - Photon - or - Electron  - to select your robot.</strong> Use the sliders above to set each motor to its individual desired direction and speed.  Click <code>GO</code> to apply.  Click <code>STOP</code> to make the robot come to a complete stop.  Click <code>FORWARDS</code> or <code> BACKWARDS</code> to quickly make the robot move in the desired direction.  Click <code>CLOCKWISE</code> or <code>COUNTERWISE</code> to quickly make the robot rotate in the desired direction.
 </p>
+
+<h2>desktop controls</h2>
+<p>
+To make the robot move forwards, press the <code>UP ARROW</code>.  To move backwards. press the <code>DOWN ARROW</code>.  To turn right, clockwise, press the <code>RIGHT ARROW</code>. To turn left, counterclockwise, press the <code>LEFT ARROW</code>. Press <code>SHIFT</code> to stop the robot's movement.  Press <code>ENTER</code> to toggle the robot's weapon.
+</p>
+
 </center>
 
 </section>
