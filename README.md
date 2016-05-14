@@ -2,7 +2,7 @@
 [![Donate Bitcoin](https://img.shields.io/badge/donate-bitcoin-orange.svg)](https://nrobinson2000.github.io/donate-bitcoin) [![Build Status](https://travis-ci.org/nrobinson2000/battlebot.svg?branch=master)](https://travis-ci.org/nrobinson2000/battlebot)
 
 # [Battlebot with Flipper](https://nrobinson2000.github.io/battlebot/)
-
+I created during Grade 10 for Tech Club. It uses a Particle Electron and an Arduino Mega to control a Rover 5 chassis and a Fiat Punto windshield wiper motor.  The Electron has 3G and receives commands form the app I created.  It then relays these commands to the Mega, which then either controls the motor controller board to move the robot, or the relay board to trigger the robot's weapon.  The motor controller board, Mega, and Electron are are powered from a 7.4 volt 5200 mAh Li-po battery.  The weapon is powered by a 11.1 volt 2200 mAh Li-po battery.  The Electron also uses its own 3.7 volt 2000 mAh battery for keeping its cellular connection.
 
 
 ## Controls
