@@ -7,3 +7,5 @@ Use the sliders to set each motor to its individual desired direction and speed.
 ![](images/IMG_1926.JPG)
 
 ![](images/IMG_1927.JPG)
+
+<center>[![](https://projecthandup.org/wp-content/uploads/2013/01/RibbonDonateBitcoin.png)](https://nrobinson2000.github.io/donate-bitcoin/)</center>
