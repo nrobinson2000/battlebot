@@ -257,6 +257,35 @@ function flip()
   }
 }
 
+$(document).keyup(function (e) {
+    if ($(".input1:focus") && (e.keyCode === 13)) {
+       reset();
+    }
+ });
+
+ $(document).keyup(function (e) {
+    if ($(".input1:focus") && (e.keyCode === 38)) {
+       forwards();
+    }
+ });
+
+ $(document).keyup(function (e) {
+    if ($(".input1:focus") && (e.keyCode === 40)) {
+       backwards();
+    }
+ });
+
+ $(document).keyup(function (e) {
+    if ($(".input1:focus") && (e.keyCode === 39)) {
+      clockwise();
+    }
+ });
+
+ $(document).keyup(function (e) {
+    if ($(".input1:focus") && (e.keyCode === 37)) {
+       counterclockwise();
+    }
+ });
 
 console.log("To call any function use:");
 console.log("callFunction(device, functionName, args)");
