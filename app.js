@@ -257,6 +257,7 @@ function flip()
   }
 }
 
+/// Control robot with arrow keys and Enter
 $(document).keyup(function (e) {
     if ($(".input1:focus") && (e.keyCode === 13)) {
        reset();
