@@ -1,0 +1,15 @@
+FR
+pwm 4
+dir 45
+
+FL
+pwm 7
+dir 43
+
+BR
+pwm 9
+dir 42
+
+BL
+pwm 10
+dir 44
