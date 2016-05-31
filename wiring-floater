@@ -1,0 +1,15 @@
+Ch1
+pwm 4
+dir 45
+
+Ch2
+pwm 7
+dir 43
+
+Ch3
+pwm 9
+dir 42
+
+Ch4
+pwm 10
+dir 44
