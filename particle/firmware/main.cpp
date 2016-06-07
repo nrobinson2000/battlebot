@@ -33,10 +33,12 @@ int flip(String command)
   if (command == "flip")
   {
     Serial1.println(command);
+    Serial.println(command);
   }
   if (command == "stopflip")
   {
     Serial1.println(command);
+    Serial.println(command);
   }
   return 1;
 }
@@ -47,7 +49,7 @@ Particle.function("move", moveMotors);
 Particle.function("flip", flip);
 Serial1.begin(9600);
 Serial.begin(9600);
-
+Particle.publish("notification", "Hello world");
 }
 
 void loop()
